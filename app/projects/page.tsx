@@ -1,10 +1,17 @@
+'use client'
+import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
 
 export default function Projects() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-slate-900 text-white p-8">
+      <motion.main 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="min-h-screen bg-slate-900 text-white p-8"
+      >
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold">My Projects</h1>
           <p className="mt-4 text-xl text-gray-400">Here are some things I've built</p>
@@ -29,7 +36,7 @@ export default function Projects() {
             </div>
           </div>
         </div>
-      </main>
+      </motion.main>
     </>
   )
 }
