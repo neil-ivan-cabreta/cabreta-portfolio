@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import Navbar from "./components/Navbar";          // 1. Import Navbar
+import StarBackground from "./components/StarryBackground"; // 2. Import Stars
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900 text-white`} // 3. Added dark bg
       >
-        {children}
+        <StarBackground />  {/* 4. Stars go first (behind everything) */}
+        <Navbar />          {/* 5. Navbar goes second */}
+        <div className="relative z-10"> {/* 6. Wrapper to ensure content sits above stars */}
+          {children}
+        </div>
         <SpeedInsights />
       </body>
     </html>
