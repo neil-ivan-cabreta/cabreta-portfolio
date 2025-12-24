@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Navbar from '../components/Navbar'
 import StarryBackground from '../components/StarryBackground'
 
 export default function Projects() {
